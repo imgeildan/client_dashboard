@@ -1,20 +1,22 @@
 class EmployeesController < ApplicationController
-  before_action :set_employee, only: [:show, :edit, :update, :destroy]
+  before_action :set_employee, except: %i[index new create]
 
   # GET /employees
   # GET /employees.json
   def index
     if params[:company_id].present?
-      @employees = Employee.where(company_id: params[:company_id]).all
+      @employees = Employee.includes(:company)
+                           .where(company_id: params[:company_id]).all
     else
-      @employees = Employee.all
+      @employees = Employee.includes(:company)
+                           .order(created_at: :desc)
+
     end
   end
 
   # GET /employees/1
   # GET /employees/1.json
-  def show
-  end
+  def show; end
 
   # GET /employees/new
   def new
@@ -22,8 +24,7 @@ class EmployeesController < ApplicationController
   end
 
   # GET /employees/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /employees
   # POST /employees.json

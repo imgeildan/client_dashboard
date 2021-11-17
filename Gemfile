@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
-
+gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -45,6 +45,8 @@ gem 'simple_token_generator', github: 'nicosticht/simple_token_generator'
 
 # Use Faker to generate more usefull seed data.
 gem 'faker'
+gem "roo", "~> 2.8.0"
+gem 'roo-xls', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

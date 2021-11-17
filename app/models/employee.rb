@@ -1,7 +1,7 @@
 class Employee < ApplicationRecord
   belongs_to :company
-  has_many :consultants, dependent: :destroy
-  has_many :clients, through: :consultants
+  has_many   :consultants, dependent: :destroy
+  has_many   :clients, through: :consultants
 
   validates :identifier, presence: true, uniqueness: true
   validates :first_name, presence: true
